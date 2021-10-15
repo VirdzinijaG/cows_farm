@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import Cows from "./Cows";
+import NewCow from "./NewCow";
 
 
 
@@ -24,24 +25,8 @@ function App() {
 
     return (
         <>
-            <h1>Karvių ferma</h1>
-            <div className="inputForm">
-                <div className="inputComponent">
-                    <label>Karvės vardas</label>
-                    <input type="text" name="reg" ></input>
-                </div>
-                <div className="inputComponent">
-                    <label>Paskutinio naudojimo data</label>
-                    <input type="date" name="date" ></input>
-                </div>
-                <div className="inputComponent">
-                    <label>Rida</label>
-                    <input type="number" name="km"></input>
-                </div>
-                <div className="inputComponent">
-                    <button>Submit</button>
-                </div>
-            </div>
+            <h1 style={{ marginTop: "10px", marginBottom: "50px", fontSize: "60px", textAlign:"center" }}>Karvių ferma</h1>
+            <NewCow></NewCow>
             <Cows cows={cows}></Cows>
         </>
     );

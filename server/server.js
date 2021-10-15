@@ -25,6 +25,22 @@ con.connect(err => {
 })
 
 
+// Iraso nauja posta
+
+app.post('/cows', (req, res) => {
+    console.log(req.body.title)
+    const sql = `
+        INSERT INTO cows
+        (name, weight, total_milk, last_milking_time)
+        VALUES (?, ?, ?, ?)
+        `;
+    con.query(sql, [req.body.name, req.body.weight, req.body.total_milk, req.body.last_milking_time], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    })
+})
 
 
 
