@@ -58,6 +58,21 @@ app.delete('/cows/:id', (req, res) => {
 })
 
 
+//Redagavimas
+app.put('/cows/:id', (req, res) => {
+    const sql = `
+        UPDATE cows
+        SET weight = ?, total_milk = ?, last_milking_time = ? 
+        WHERE id = ?
+        `;
+    con.query(sql, [req.body.weight, req.body.total_milk, req.body.last_milking_time, req.params.id], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    })
+})
+
 
 
 
