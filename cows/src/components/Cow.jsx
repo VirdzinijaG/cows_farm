@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-function Cow({id, cow, deleteCow, editCow }) {
+function Cow({ id, cow, deleteCow, editCow }) {
 
 
     const [weight, setWeight] = useState('');
@@ -46,6 +46,14 @@ function Cow({id, cow, deleteCow, editCow }) {
     if (id === 0) {
         return null;
     }
+
+
+    const d = new Date(cow.last_milking_time);
+    let month = "00" + (d.getMonth() + 1);
+    month = month.substring(month.length - 2);
+    let day = "00" + d.getDate();
+    day = day.substring(day.length - 2);
+    cow.last_milking_time = `${d.getFullYear()}-${month}-${day}`;
 
 
 
