@@ -34,8 +34,6 @@ function App() {
     };
 
 
-
-
     return (
         <>
             <h1 style={{ marginTop: "10px", marginBottom: "50px", fontSize: "60px", textAlign: "center" }}>Karvių ferma</h1>

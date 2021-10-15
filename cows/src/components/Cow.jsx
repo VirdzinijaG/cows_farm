@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-function Cow({ cow, deleteCow, editCow }) {
+function Cow({id, cow, deleteCow, editCow }) {
 
 
     const [weight, setWeight] = useState('');
@@ -31,16 +31,21 @@ function Cow({ cow, deleteCow, editCow }) {
     };
 
 
-    // const edit = () => {
-    //     editCow(id,{
-    //         weight: weight,
-    //         total_milk: milk,
-    //         last_milking_time: time
-    //     });
-    //     setWeight("");
-    //     setMilk("");
-    //     setTime("")
-    // };
+    const edit = (id) => {
+        editCow(id, {
+            weight: weight,
+            total_milk: milk,
+            last_milking_time: time
+        });
+        setWeight("");
+        setMilk("");
+        setTime("")
+    };
+
+
+    if (id === 0) {
+        return null;
+    }
 
 
 
@@ -83,7 +88,7 @@ function Cow({ cow, deleteCow, editCow }) {
                             Įvesti naują datą
                         </small>
                     </td>
-                    <td><button type="button" className="btn btn-warning" style={{ width: '90px', borderRadius: "10px", color: "green" }} onClick={() => editCow(cow.id)} >
+                    <td><button type="button" className="btn btn-warning" style={{ width: '90px', borderRadius: "10px", color: "green" }} onClick={() => edit(cow.id)} >
                         Atnaujinti
                     </button></td>
                 </tr>
