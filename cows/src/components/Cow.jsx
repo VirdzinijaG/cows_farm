@@ -66,6 +66,7 @@ function Cow({ id, cow, deleteCow, editCow }) {
                     <th scope="col">Karvės svoris</th>
                     <th scope="col">Pieno kiekis</th>
                     <th scope="col">Paskutinė melžimo diena</th>
+                    {/* <th>Bendras karvės pieno kiekis</th> */}
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -75,12 +76,12 @@ function Cow({ id, cow, deleteCow, editCow }) {
                     <td>{cow.weight} kg</td>
                     <td>{cow.total_milk} l</td>
                     <td>{cow.last_milking_time}</td>
+                    {/* <td>{cow.total_milk} +</td>  */}
                     <td><button type="button" className="btn btn-danger" style={{ width: '90px', borderRadius: "10px" }} onClick={() => deleteCow(cow.id)}>
                         Ištrinti
                     </button></td>
                 </tr>
                 <tr>
-                    <td></td>
                     <td><input type="number" className="form-control" style={{ width: "100px" }} onChange={(e) => control(e, "weight")} value={weight} />
                         <small className="form-text text-muted">
                             Įvesti naują svorį
@@ -96,6 +97,7 @@ function Cow({ id, cow, deleteCow, editCow }) {
                             Įvesti naują datą
                         </small>
                     </td>
+                    <td></td>
                     <td><button type="button" className="btn btn-warning" style={{ width: '90px', borderRadius: "10px", color: "green" }} onClick={() => edit(cow.id)} >
                         Atnaujinti
                     </button></td>
