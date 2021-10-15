@@ -1,10 +1,10 @@
 import Cow from "./Cow";
 
 
-function Cows({ cows }) {
+function Cows({ cows, deleteCow }) {
     return (
         <>
-            {cows.map((cow) => (<Cow key={cow.id} cow={cow} />))}
+            {cows.map((cow) => (<Cow key={cow.id} cow={cow} deleteCow={deleteCow} />))}
         </>
     )
 }

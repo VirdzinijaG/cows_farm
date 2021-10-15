@@ -29,7 +29,7 @@ function NewCow({ addCow }) {
             name: name,
             weight: weight,
             total_milk: milk,
-            last_milk_date: time
+            last_milking_time: time
         });
         setName("");
         setWeight("");
@@ -54,7 +54,7 @@ function NewCow({ addCow }) {
                     <input onChange={(e) => control(e, "total_milk")} value={milk} type="number" className="form-control" />
                 </div>
                 <div className="col-md-3">
-                    <label>Paskutinio melžimo diena</label>
+                    <label>Paskutinė melžimo diena</label>
                     <input onChange={(e) => control(e, "last_milking_time")} value={time} type="date" className="form-control" />
                 </div>
                 <button onClick={insert} type="submit" className="btn btn-dark" style={{ margin: "15px", width: "150px" }}>Įvesti</button>

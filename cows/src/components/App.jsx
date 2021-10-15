@@ -4,7 +4,6 @@ import Cows from "./Cows";
 import NewCow from "./NewCow";
 
 
-
 function App() {
 
     const [cows, setCows] = useState([]);
@@ -18,6 +17,22 @@ function App() {
         });
     }, [lastUpdate]);
 
+    const addCow = (cow) => {
+        axios.post("http://localhost:3003/cows", cow).then(() => {
+            setLastUpdate(Date.now());
+        });
+    };
+
+    const deleteCow = (id) => {
+        axios.delete("http://localhost:3003/cows/" + id).then(() => {
+            setLastUpdate(Date.now());
+        });
+    };
+
+
+
+
+
 
 
 
@@ -25,9 +40,9 @@ function App() {
 
     return (
         <>
-            <h1 style={{ marginTop: "10px", marginBottom: "50px", fontSize: "60px", textAlign:"center" }}>Karvių ferma</h1>
-            <NewCow></NewCow>
-            <Cows cows={cows}></Cows>
+            <h1 style={{ marginTop: "10px", marginBottom: "50px", fontSize: "60px", textAlign: "center" }}>Karvių ferma</h1>
+            <NewCow addCow={addCow}></NewCow>
+            <Cows cows={cows} deleteCow={deleteCow}></Cows>
         </>
     );
 }

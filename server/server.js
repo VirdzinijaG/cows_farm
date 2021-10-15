@@ -42,6 +42,21 @@ app.post('/cows', (req, res) => {
     })
 })
 
+// Trina posta
+
+app.delete('/cows/:id', (req, res) => {
+    const sql = `
+        DELETE FROM cows
+        WHERE id = ?
+        `;
+    con.query(sql, [req.params.id], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    })
+})
+
 
 
 
