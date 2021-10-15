@@ -29,6 +29,23 @@ con.connect(err => {
 
 
 
+
+
+
+// rodo visas karves
+app.get('/cows', (req, res) => {
+    con.query('SELECT * FROM cows ORDER BY id DESC', (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.json(results);
+    })
+})
+
+
+
+
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
