@@ -3,7 +3,7 @@ import "../style.css";
 function Statistic({ cowsCount, milkCount, sort }) {
     return (
         <>
-            <div className="statistic row col-lg-5 col-md-12 col-sm-10">
+            <div className="statistic row col-lg-5 col-md-7 col-sm-10">
                 <div className="col-sm-6">
                     <div className="card">
                         <div className="card-body" style={{height:"200px"}}>
