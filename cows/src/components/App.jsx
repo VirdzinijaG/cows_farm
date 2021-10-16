@@ -7,8 +7,8 @@ function App() {
 
     const [cows, setCows] = useState([]);
     const [lastUpdate, setLastUpdate] = useState(Date.now());
-    const [cowsCount, setCowsCount] = useState(0);
-    const [milkCount, setMilkCount] = useState([]);
+    // const [cowsCount, setCowsCount] = useState(0);
+    // const [milkCount, setMilkCount] = useState([]);
 
 
     useEffect(() => {
@@ -19,23 +19,6 @@ function App() {
 
 
 
-    // Statistika
-    // Visos karves
-    useEffect(() => {
-        axios.get('http://localhost:3003/cows/count')
-            .then((response) => {
-                setCowsCount(response.data[0].cowsCount);
-            })
-    }, [lastUpdate])
-
-    // Visas pieno kiekis
-    useEffect(() => {
-        axios.get('http://localhost:3003/cows/milk-count')
-            .then((response) => {
-                console.log(response.data);
-                setMilkCount(response.data[0].total_milk);
-            })
-    }, [lastUpdate])
 
     const addCow = (cow) => {
         axios.post("http://localhost:3003/cows", cow).then(() => {
@@ -56,35 +39,6 @@ function App() {
     };
 
 
-
-    // rusiavimas
-    // const sort = by => {
-    //     const cowsCopy = cows.slice();
-    //     if ('total_ride_kilometres' === by) {
-    //         cowsCopy.sort((a, b) => {
-    //             if (a.total_ride_kilometres > b.total_ride_kilometres) {
-    //                 return 1
-    //             }
-    //             if (a.total_ride_kilometres < b.total_ride_kilometres) {
-    //                 return -1
-    //             }
-    //             return 0
-    //         })
-    //         setCows(cowsCopy)
-    //     }
-    //     if ("last_use_time" === by) {
-    //         cowsCopy.sort((a, b) => {
-    //             if (a.last_use_time > b.last_use_time) {
-    //                 return 1;
-    //             }
-    //             if (a.last_use_time < b.last_use_time) {
-    //                 return -1;
-    //             }
-    //             return 0;
-    //         });
-    //         setCows(cowsCopy);
-    //     }
-    // }
 
     return (
         <>

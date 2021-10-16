@@ -88,29 +88,6 @@ app.get('/cows', (req, res) => {
     })
 })
 
-// skaiciuoja karve
-// SELECT COUNT(ProductID) AS NumberOfProducts FROM Products;
-app.get('/cows/count', (req, res) => {
-    con.query('SELECT COUNT(id) AS cowsCount FROM cows', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        res.json(results);
-    })
-})
-
-// skaiciuoja pieno kieki
-app.get('/cows/milk-count', (req, res) => {
-    con.query(
-        "SELECT SUM(total_milk) AS total_milk FROM cows",
-        (err, results) => {
-            if (err) {
-                throw err;
-            }
-            res.json(results);
-        }
-    );
-});
 
 
 
