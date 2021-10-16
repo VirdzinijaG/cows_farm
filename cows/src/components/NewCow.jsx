@@ -40,7 +40,7 @@ function NewCow({ addCow }) {
     return (
         <>
             <form>
-                <h4 style={{marginLeft:"100px"}}>Įvesti naują karvę</h4>
+                <h4 style={{ marginLeft: "100px" }}>Įvesti naują karvę</h4>
                 <div className="col-md-3">
                     <label>Karvės vardas</label>
                     <input onChange={(e) => control(e, "name")} value={name} type="text" className="form-control" />
