@@ -1,12 +1,12 @@
 import "../style.css";
 
-function Statistic({ cowsCount, milkCount }) {
+function Statistic({ cowsCount, milkCount, sort }) {
     return (
         <>
             <div className="statistic row">
                 <div className="col-sm-6">
                     <div className="card">
-                        <div className="card-body">
+                        <div className="card-body" style={{height:"200px"}}>
                             <h5 className="card-title">Statistika</h5>
                             <p className="card-text"><h6>Bendras karvių skaičius</h6> {cowsCount}</p>
                             <p className="card-text"><h6>Bendras pieno kiekis</h6> {milkCount}</p>
@@ -15,10 +15,14 @@ function Statistic({ cowsCount, milkCount }) {
                 </div>
                 <div className="col-sm-6">
                     <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Special title treatment</h5>
-                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                        <div className="card-body" style={{height:"200px"}}>
+                            <h5 className="card-title" style={{marginBottom:"25px"}}>Rūšiuoti pagal</h5>
+                            <button type="button" class="btn btn-secondary m-1" onClick={() => sort("weight")}>
+                                Pagal karvės svorį
+                            </button>
+                            <button type="button" class="btn btn-secondary m-1" onClick={() => sort("total_milk")}>
+                                Pagal pieno kiekį
+                            </button>
                         </div>
                     </div>
                 </div>

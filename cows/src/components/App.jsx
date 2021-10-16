@@ -59,12 +59,36 @@ function App() {
     };
 
 
+    // rusiavimas
+    const sort = by => {
+        const cowsCopy = cows.slice();
+        if ('total_milk' === by) {
+          cowsCopy.sort((a, b) => {
+            if (a.total_milk > b.total_milk) {
+              return 1
+            }
+            if (a.total_milk < b.total_milk) {
+              return -1
+            }
+            return 0
+          })
+          setCows(cowsCopy)
+        }
+        if ('weight' === by) {
+          cowsCopy.sort((a, b) => a.weight - b.weight)
+    
+    
+          setCows(cowsCopy)
+        }
+      }
+
+
 
     return (
         <>
             <h1 style={{ marginTop: "10px", marginBottom: "50px", fontSize: "60px", textAlign: "center" }}>Karvių ferma</h1>
             <NewCow addCow={addCow}></NewCow>
-            <Statistic cowsCount={cowsCount} milkCount={milkCount}></Statistic>
+            <Statistic cowsCount={cowsCount} milkCount={milkCount} sort={sort}></Statistic>
             <Cows cows={cows} deleteCow={deleteCow} editCow={editCow}></Cows>
         </>
     );
