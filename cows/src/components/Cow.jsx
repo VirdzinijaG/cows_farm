@@ -93,7 +93,7 @@ function Cow({ id, cow, deleteCow, editCow }) {
                             Įvesti naują kiekį
                         </small>
                     </td>
-                    <td><input type="text" className="form-control" style={{ width: "190px" }} onChange={(e) => control(e, "last_milking_time")} value={time} />
+                    <td><input type="text" onKeyPress={(event) => { if (!/[0-9]/.test(event.key)) { event.preventDefault(); } }} className="form-control" style={{ width: "190px" }} onChange={(e) => control(e, "last_milking_time")} value={time} />
                         <small className="form-text text-muted">
                             Įvesti naują datą
                         </small>
